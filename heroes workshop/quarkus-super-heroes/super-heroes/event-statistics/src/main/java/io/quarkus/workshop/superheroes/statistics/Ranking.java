@@ -1,10 +1,12 @@
 package io.quarkus.workshop.superheroes.statistics;
 
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 
+/**
+ * Object used to compute a floating &quot;top&quot; winners. The number of winners to keep track of is defined at construction time.
+ */
 public class Ranking {
 
     private final int max;
@@ -17,6 +19,11 @@ public class Ranking {
         max = size;
     }
 
+    /**
+     * Records a new {@link Score}
+     * @param score The {@link Score} received
+     * @return The current list of floating top winners and their scores
+     */
     public Iterable<Score> onNewScore(Score score) {
         // Remove score if already present,
         top.removeIf(s -> s.name.equalsIgnoreCase(score.name));
@@ -32,5 +39,4 @@ public class Ranking {
 
         return Collections.unmodifiableList(top);
     }
-
 }

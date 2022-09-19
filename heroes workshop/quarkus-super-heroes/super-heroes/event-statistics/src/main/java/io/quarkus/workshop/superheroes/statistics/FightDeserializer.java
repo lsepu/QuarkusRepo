@@ -7,5 +7,4 @@ public class FightDeserializer extends ObjectMapperDeserializer<Fight> {
     public FightDeserializer() {
         super(Fight.class);
     }
-
 }
