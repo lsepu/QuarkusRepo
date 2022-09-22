@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.fruit;
 
 import io.quarkus.panache.common.Sort;
 import io.smallrye.mutiny.Uni;

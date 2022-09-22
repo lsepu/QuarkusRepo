@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.fruit;
 
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
@@ -17,7 +17,9 @@ public class Fruit extends PanacheEntityBase {
 
     @Column(unique = true)
     @NotBlank
-    @Size(min = 2, max = 20)
+    @Size(min = 3, max = 20)
     public String name;
+
+
 
 }
