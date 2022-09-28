@@ -1,5 +1,6 @@
 package org.acme.book;
 
+import io.quarkus.hibernate.reactive.panache.common.runtime.ReactiveTransactional;
 import io.quarkus.panache.common.Sort;
 import io.smallrye.mutiny.Uni;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,8 @@ import org.acme.book.mapper.BookMapperStruct;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,6 +45,7 @@ public class BookService {
                 .asList();
     }
 
+    @ReactiveTransactional
     public Uni<BookDTO> addBook(BookDTO bookDTO) {
         return bookRepository.persist(bookMapperStruct.toBook(bookDTO))
                 .map(bookMapperStruct::toBookDTO);

@@ -17,6 +17,9 @@ import javax.validation.constraints.Size;
 @RequiredArgsConstructor
 @Builder
 @Cacheable
+/*@NamedQueries({
+        @NamedQuery(name = "Book.getByAuthor", query = "lower(authorName) like lower(?1)")
+})*/
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -36,7 +36,6 @@ public class BookResource {
     }
 
     @POST
-    @ReactiveTransactional
     public Uni<Response> addBook(@Valid BookDTO bookDTO){
         return bookService.addBook(bookDTO)
                 .onItem().ifNotNull().transform(h -> Response.ok().entity(h).build())
